@@ -42,11 +42,27 @@ const displayPhone = (phones) => {
         `;
     phoneContainer.appendChild(phoneCard);
   });
+  // hide loading spinner
+  toggleLoadingSpinner(false);
 };
 
 // handle search button
 const handleSearch = () => {
+  toggleLoadingSpinner(true);
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   loadPhone(searchText);
 };
+
+const toggleLoadingSpinner = (isLoading) => {
+ const loadingSpinner = document.getElementById("loading-spinner");
+ if(isLoading){
+  loadingSpinner.classList.remove("hidden");
+ }
+ else{
+  loadingSpinner.classList.add("hidden");
+
+ }
+}
+ 
+

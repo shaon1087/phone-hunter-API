@@ -19,8 +19,13 @@
              <input id="search-field" type="text" placeholder="search..." class="input input-boarded w-full max-w-xs"/>
              <button onclick="handleSearch()" class="btn btn-accent">Search</button>
         </section>
+        <!-- spinner or loader -->
+
         <!-- search result -->
       <section>
+        <div id="loading-spinner" class="my-40 text-center hidden">
+          <span class="loading loading-spinner text-primary loading-md"></span>
+        </div>
         <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">  
           </div>
           <div class="hidden" id="show-container">
