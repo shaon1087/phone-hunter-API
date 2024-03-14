@@ -11,7 +11,7 @@ const displayPhone = (phones,isShowAll) => {
   // clear the container before adding new cards
   phoneContainer.textContent = '';
   const showButton = document.getElementById('show-container');
-  console.log(isShowAll);
+
    if(phones.length > 10 && !isShowAll) {
       showButton.classList.remove('hidden');
    }
@@ -38,8 +38,8 @@ const displayPhone = (phones,isShowAll) => {
             <div class="card-body">
               <h2 class="card-title">${phone.phone_name}</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+              <div class="card-actions justify-center">
+                <button onclick="showDetails('${phone.slug}')" class="btn  btn-accent ">Show Details</button>
               </div>
             </div>
         `;
@@ -66,6 +66,13 @@ const toggleLoadingSpinner = (isLoading) => {
   loadingSpinner.classList.add("hidden");
 
  }
+}
+
+// show details button
+const showDetails = async (id) => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+  const data = await res.json();
+  console.log(data);
 }
 // handle show all
 const handleShowAll = () =>{
